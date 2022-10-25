@@ -1,4 +1,10 @@
-import { AUTHOR_IMAGE, AUTHOR_NAME, CATEGORY, TITLE } from "./actionTypes";
+import {
+  AUTHOR_IMAGE,
+  AUTHOR_NAME,
+  CATEGORY,
+  SEARCH,
+  TITLE,
+} from "./actionTypes";
 
 const initialState = [
   {
@@ -61,7 +67,7 @@ const initialState = [
 ];
 
 const blogReducer = (state = initialState, action) => {
-  console.log(action.payload);
+  console.log(state);
   switch (action.type) {
     case CATEGORY:
       return state.filter((item) => item.category === action.payload);
@@ -75,7 +81,12 @@ const blogReducer = (state = initialState, action) => {
         ...state,
         title: state.title.toLowerCase().includes(action.payload.toLowerCase()),
       };
-    // return state.filter((item) => item.title === action.payload);
+    case SEARCH:
+      return initialState.filter(
+        (data) =>
+          data.author_name.toLowerCase().includes(action.payload) ||
+          data.title.toLowerCase().includes(action.payload)
+      );
 
     default:
       return state;

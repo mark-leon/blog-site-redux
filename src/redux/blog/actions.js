@@ -1,4 +1,10 @@
-import { AUTHOR_IMAGE, AUTHOR_NAME, CATEGORY, TITLE } from "./actionTypes";
+import {
+  AUTHOR_IMAGE,
+  AUTHOR_NAME,
+  CATEGORY,
+  SEARCH,
+  TITLE,
+} from "./actionTypes";
 
 export const filterCategory = (value) => {
   return {
@@ -24,6 +30,13 @@ export const filterAuthorImage = (value) => {
 export const filterTitle = (value) => {
   return {
     type: TITLE,
+    payload: value,
+  };
+};
+
+export const search = (value) => {
+  return {
+    type: SEARCH,
     payload: value,
   };
 };

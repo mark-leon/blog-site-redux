@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { filterTitle } from "../../redux/blog/actions";
+import { search } from "../../redux/blog/actions";
 
 const Search = () => {
   const dispatch = useDispatch();
   const categoryHandler = (value) => {
-    //console.log(value);
-    dispatch(filterTitle("boost"));
+    dispatch(search(value));
   };
   return (
     <div className="border mt-6 border-slate-200 flex items-center w-11/12 lg:w-1/2 mx-auto bg-gray-50 h-12 px-5 rounded-lg text-sm ring-emerald-200">
@@ -15,7 +14,7 @@ const Search = () => {
         type="search"
         name="search"
         placeholder="Search"
-        onChange={(event) => categoryHandler(event.target.value)}
+        onChange={(event) => categoryHandler(event.target.value.toLowerCase())}
       />
       <img
         className="inline h-6 cursor-pointer"

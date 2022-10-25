@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import counterReducer from "./counter/counterReducer";
+import counterReducer from "./blog/blogReducer";
 //import dynamicCounterReducer from "./dynamicCounter/dynamicCounterReducer";
 
 const rootReducer = combineReducers({
